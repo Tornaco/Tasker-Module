@@ -1,0 +1,3 @@
+D:/android/workspace/old/Tasker/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/native-lib.dir
+D:/android/workspace/old/Tasker/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/edit_cache.dir
+D:/android/workspace/old/Tasker/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/rebuild_cache.dir

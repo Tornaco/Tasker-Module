@@ -1,0 +1,15 @@
+Executable : D:\android\sdk\cmake\3.6.3155560\bin\cmake.exe
+arguments : 
+-HD:\android\workspace\old\Tasker\app
+-BD:\android\workspace\old\Tasker\app\.externalNativeBuild\cmake\release\mips
+-GAndroid Gradle - Ninja
+-DANDROID_ABI=mips
+-DANDROID_NDK=D:\android\ndk-bundle
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\android\workspace\old\Tasker\app\build\intermediates\cmake\release\obj\mips
+-DCMAKE_BUILD_TYPE=Release
+-DCMAKE_MAKE_PROGRAM=D:\android\sdk\cmake\3.6.3155560\bin\ninja.exe
+-DCMAKE_TOOLCHAIN_FILE=D:\android\ndk-bundle\build\cmake\android.toolchain.cmake
+-DANDROID_PLATFORM=android-18
+-DCMAKE_CXX_FLAGS=-frtti -fexceptions
+jvmArgs : 
+

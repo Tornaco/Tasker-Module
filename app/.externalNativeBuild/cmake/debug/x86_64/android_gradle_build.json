@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "D:/android/workspace/old/Tasker/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"D:\\android\\sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build D:\\android\\workspace\\old\\Tasker\\app\\.externalNativeBuild\\cmake\\debug\\x86_64 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-lib-Debug-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "native-lib",
+			"buildCommand" : "D:\\android\\sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build D:\\android\\workspace\\old\\Tasker\\app\\.externalNativeBuild\\cmake\\debug\\x86_64 --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  -target x86_64-none-linux-android -gcc-toolchain D:/android/ndk-bundle/toolchains/x86_64-4.9/prebuilt/windows-x86_64 --sysroot=D:/android/ndk-bundle/platforms/android-21/arch-x86_64  -Dnative_lib_EXPORTS -isystem D:\\android\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem D:\\android\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\x86_64\\include -isystem D:\\android\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -frtti -fexceptions -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/android/workspace/old/Tasker/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "D:/android/workspace/old/Tasker/app/.externalNativeBuild/cmake/debug/x86_64"
+				}
+			],
+			"output" : "D:/android/workspace/old/Tasker/app/build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so",
+			"toolchain" : "1664893565"
+		}
+	},
+	"toolchains" : 
+	{
+		"1664893565" : 
+		{
+			"cCompilerExecutable" : "D:/android/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/android/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}
