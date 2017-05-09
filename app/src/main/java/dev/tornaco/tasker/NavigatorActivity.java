@@ -25,6 +25,16 @@ public class NavigatorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Test.
+                        Launcher.launch(getApplicationContext());
+                    }
+                }).start();
+
             }
         });
 
