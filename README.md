@@ -13,3 +13,9 @@ am instrument -w -r -e package xxx -e debug false xxxx/android.support.test.runn
 ```
 
 So, we execute this command on our app, then the test suit can get the tasks(param, data) via AIDL service.
+
+## Flow
+
+
+![flow](design/flow.png)
+
