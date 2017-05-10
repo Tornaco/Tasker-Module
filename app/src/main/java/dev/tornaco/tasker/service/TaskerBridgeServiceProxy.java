@@ -18,22 +18,20 @@ public class TaskerBridgeServiceProxy extends ServiceProxy {
 
     private ITaskerBridgeService mService;
 
-    private TaskerBridgeServiceProxy(Context context) {
-        super(context, new Intent(context, TaskerBridgeService.class));
+    private TaskerBridgeServiceProxy(Context context, Intent intent) {
+        super(context, intent);
     }
 
-    public static void start(Context context) {
-        context.startService(new Intent(context, TaskerBridgeService.class));
-    }
-
-    public static void stop(Context context) {
-        context.stopService(new Intent(context, TaskerBridgeService.class));
+    private static TaskerBridgeServiceProxy create(Context c) {
+        Intent i = new Intent("dev.tornaco.tasker.ACTION_START_SERVICE");
+        i.setClassName("dev.tornaco.tasker.app", "dev.tornaco.tasker.app.service.TaskerBridgeService");
+        return new TaskerBridgeServiceProxy(c, i);
     }
 
     @WorkerThread
     public static void version(Context context, Consumer<String> stringConsumer) {
         try {
-            new TaskerBridgeServiceProxy(context).version(stringConsumer);
+            create(context).version(stringConsumer);
         } catch (RemoteException ignored) {
             stringConsumer.accept(null);
         }
@@ -41,7 +39,6 @@ public class TaskerBridgeServiceProxy extends ServiceProxy {
 
     @WorkerThread
     public void version(final Consumer<String> consumer) throws RemoteException {
-
 
         setTask(new ProxyTask() {
             @Override

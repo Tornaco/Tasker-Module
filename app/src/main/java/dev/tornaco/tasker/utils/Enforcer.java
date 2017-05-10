@@ -1,6 +1,5 @@
 package dev.tornaco.tasker.utils;
 
-import android.content.Context;
 import android.text.TextUtils;
 
 import com.chrisplus.rootmanager.RootManager;
@@ -29,12 +28,6 @@ public class Enforcer {
     public static RootManager enforceRoot() {
         enforce(RootManager.getInstance().obtainPermission(), "No root permission~");
         return RootManager.getInstance();
-    }
-
-
-    public static void enforceTestAppInstalled(Context context) {
-        String packageName = enforceNoNull(context).getPackageName() + ".test";
-        enforceAppInstalled(packageName);
     }
 
     public static void enforceAppInstalled(String pkgName) {
