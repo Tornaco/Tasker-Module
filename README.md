@@ -24,7 +24,7 @@ So, we execute this command on our app, then the test suit can get the tasks(par
 ## Flow
 
 
-![flow](design/flow.png)
+![flow](design/flow2.png)
 
 
 ### Code example
