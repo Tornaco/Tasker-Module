@@ -1,6 +1,5 @@
 package dev.tornaco.tasker;
 
-import android.support.annotation.Nullable;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.uiautomator.UiDevice;
@@ -14,8 +13,9 @@ import org.newstand.logger.Logger;
 
 import java.io.IOException;
 
-import dev.tornaco.tasker.common.Consumer;
+import dev.tornaco.tasker.service.ITask;
 import dev.tornaco.tasker.service.TaskerBridgeServiceProxy;
+import dev.tornaco.taskerapi.UiSelectorDelegate;
 
 import static java.lang.Thread.sleep;
 
@@ -31,13 +31,13 @@ public class Launcher {
     public void start() throws IOException, UiObjectNotFoundException, InterruptedException {
         Logger.d("Start called!");
 
-        TaskerBridgeServiceProxy.version(InstrumentationRegistry.getTargetContext(),
-                new Consumer<String>() {
-                    @Override
-                    public void accept(@Nullable String s) {
-                        Logger.d("TaskerBridgeService version: %s", s);
-                    }
-                });
+        Logger.d("TaskerBridgeService version: %s", TaskerBridgeServiceProxy.version(InstrumentationRegistry.getTargetContext()));
+
+        // API Test.
+        while (TaskerBridgeServiceProxy.hasNext(InstrumentationRegistry.getTargetContext())) {
+            ITask next = TaskerBridgeServiceProxy.nextTask(InstrumentationRegistry.getTargetContext());
+            Logger.d(next);
+        }
 
         UiDevice uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
@@ -49,9 +49,14 @@ public class Launcher {
         String kill = uiDevice.executeShellCommand("am force-stop com.android.contacts");
         String res = uiDevice.executeShellCommand("am start -n com.android.contacts/.activities.PeopleActivity");
 
-        UiObject addButton = uiDevice.findObject(
-                new UiSelector()
-                        .resourceId("com.android.contacts:id/floating_action_button"));
+        UiSelector selector = new UiSelector()
+                .resourceId("com.android.contacts:id/floating_action_button");
+
+        String json = UiSelectorDelegate.toJson(selector);
+
+        UiSelector selectorJson = UiSelectorDelegate.fromJson(json);
+
+        UiObject addButton = uiDevice.findObject(selectorJson);
 
         addButton.clickAndWaitForNewWindow();
 

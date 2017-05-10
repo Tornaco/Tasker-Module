@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.tornaco.tasker">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <instrumentation
         android:name="android.support.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"

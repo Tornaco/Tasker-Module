@@ -1,4 +1,4 @@
-package dev.tornaco.tasker.utils;
+package dev.tornaco.taskerapi.utils;
 
 import android.text.TextUtils;
 
@@ -15,7 +15,6 @@ import org.newstand.logger.Logger;
 
 public class Enforcer {
 
-
     public static void enforce(boolean expression, String message) {
         if (!expression) throw new IllegalArgumentException(message);
     }
@@ -23,6 +22,12 @@ public class Enforcer {
     public static <T> T enforceNoNull(T t) {
         if (t == null) throw new NullPointerException();
         return t;
+    }
+
+    public static String enforceNoEmpty(String text) {
+        enforceNoNull(text);
+        enforce(text.length() > 0, "Text is empty.");
+        return text;
     }
 
     public static RootManager enforceRoot() {
