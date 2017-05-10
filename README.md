@@ -4,9 +4,16 @@ Running tasks based on any uiautomator API through this APP on Root devices
 ## Functional design
 
 There are 2 parts to implement this goal:
-1. Main App, accept user tasks and route these commands to test suit app.
-2. Test suit app, based on android junit test and uiautomator framework.
-
+1. Tasker-App, accept user tasks and route these commands to run test suit app.
+2. Bridge, based on android junit test and uiautomator framework Instrumention decleared:
+```
+<instrumentation
+        android:name="android.support.test.runner.AndroidJUnitRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for dev.tornaco.tasker"
+        android:targetPackage="dev.tornaco.tasker" />
+```
 On a normal test step, we usually start a test like this:
 ```
 am instrument -w -r -e package xxx -e debug false xxxx/android.support.test.runner.AndroidJUnitRunner
