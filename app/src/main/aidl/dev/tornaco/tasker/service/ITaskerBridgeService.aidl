@@ -1,15 +1,10 @@
 // ITaskerBridgeService.aidl
 package dev.tornaco.tasker.service;
 
-import dev.tornaco.tasker.service.ITask;
-import dev.tornaco.tasker.service.ITaskListener;
+import dev.tornaco.tasker.service.ITaskExecutor;
 
 interface ITaskerBridgeService {
-    String version();
+    void onExecutorCreate(in ITaskExecutor executor);
 
-    ITask nextTask();
-
-    boolean hasNextTask();
-
-    void setTaskListener(ITaskListener listener);
+    boolean shouldTerminate(in ITaskExecutor executor);
 }

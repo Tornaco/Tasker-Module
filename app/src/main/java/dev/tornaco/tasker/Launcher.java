@@ -1,21 +1,23 @@
 package dev.tornaco.tasker;
 
+import android.os.RemoteException;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.uiautomator.UiDevice;
-import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObjectNotFoundException;
-import android.support.test.uiautomator.UiSelector;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.newstand.logger.Logger;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import dev.tornaco.tasker.service.ITask;
+import dev.tornaco.tasker.service.ITaskExecutor;
 import dev.tornaco.tasker.service.TaskerBridgeServiceProxy;
-import dev.tornaco.taskerapi.UiSelectorDelegate;
+import dev.tornaco.taskerapi.Tasks;
+import dev.tornaco.taskerapi.UIDeviceDelegate;
 
 import static java.lang.Thread.sleep;
 
@@ -28,38 +30,44 @@ import static java.lang.Thread.sleep;
 public class Launcher {
 
     @Test
-    public void start() throws IOException, UiObjectNotFoundException, InterruptedException {
+    public void start() throws IOException, UiObjectNotFoundException, InterruptedException, RemoteException {
         Logger.d("Start called!");
-
-        Logger.d("TaskerBridgeService version: %s", TaskerBridgeServiceProxy.version(InstrumentationRegistry.getTargetContext()));
-
-        // API Test.
-        while (TaskerBridgeServiceProxy.hasNext(InstrumentationRegistry.getTargetContext())) {
-            ITask next = TaskerBridgeServiceProxy.nextTask(InstrumentationRegistry.getTargetContext());
-            Logger.d(next);
-        }
 
         UiDevice uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
-        Logger.d("UIDevice: %s", uiDevice);
+        final UIDeviceDelegate deviceDelegate = new UIDeviceDelegate(uiDevice);
 
-        // Test
-        uiDevice.pressHome();
-        // Launch contacts app.
-        String kill = uiDevice.executeShellCommand("am force-stop com.android.contacts");
-        String res = uiDevice.executeShellCommand("am start -n com.android.contacts/.activities.PeopleActivity");
+        ITaskExecutor executor = new ITaskExecutor.Stub() {
+            @Override
+            public String execute(ITask task) throws RemoteException {
 
-        UiSelector selector = new UiSelector()
-                .resourceId("com.android.contacts:id/floating_action_button");
+                Tasks t = Tasks.findByName(task.getName());
 
-        String json = UiSelectorDelegate.toJson(selector);
+                try {
+                    if (t != null) {
+                        Logger.d("Now executing: %s", t);
+                        return t.execute(deviceDelegate, task.getTaskBody());
+                    } else {
+                        Logger.w("No executor found for: %s", task);
+                    }
+                } catch (Exception e) {
+                    Logger.e(e, "Err execute");
+                }
+                return null;
+            }
 
-        UiSelector selectorJson = UiSelectorDelegate.fromJson(json);
+            @Override
+            public String getSerial() throws RemoteException {
+                return UUID.randomUUID().toString();
+            }
+        };
 
-        UiObject addButton = uiDevice.findObject(selectorJson);
+        TaskerBridgeServiceProxy.create(InstrumentationRegistry.getTargetContext()).onExecutorCreate(executor);
 
-        addButton.clickAndWaitForNewWindow();
+        while (!TaskerBridgeServiceProxy.create(InstrumentationRegistry.getTargetContext()).shouldTerminate(executor)) {
+            sleep(1000);
+        }
 
-        sleep(10 * 1000);
+        Logger.d("Bye");
     }
 }
