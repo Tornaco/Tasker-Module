@@ -13,11 +13,11 @@ import org.newstand.logger.Logger;
 import java.io.IOException;
 import java.util.UUID;
 
+import dev.tornaco.tasker.core.Tasks;
+import dev.tornaco.tasker.core.UIDeviceDelegate;
 import dev.tornaco.tasker.service.ITask;
 import dev.tornaco.tasker.service.ITaskExecutor;
 import dev.tornaco.tasker.service.TaskerBridgeServiceProxy;
-import dev.tornaco.taskerapi.Tasks;
-import dev.tornaco.taskerapi.UIDeviceDelegate;
 
 import static java.lang.Thread.sleep;
 

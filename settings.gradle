@@ -1,1 +1,1 @@
-include ':app', ':taskerapi'
+include ':app'

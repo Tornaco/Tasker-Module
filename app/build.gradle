@@ -51,5 +51,7 @@ dependencies {
     compile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
     compile 'com.chrisplus.rootmanager:library:2.0.5@aar'
     compile 'com.github.Tornaco:Logger:1.1'
-    compile project(':taskerapi')
+    compile 'com.github.Tornaco:Tasker-API:1.0-ALPHA'
+
+    compile 'com.google.code.gson:gson:2.7'
 }

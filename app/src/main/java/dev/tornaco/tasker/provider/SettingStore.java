@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 
 import java.util.Observable;
 
-import dev.tornaco.taskerapi.utils.Enforcer;
+import dev.tornaco.tasker.core.utils.Enforcer;
 
 /**
  * Created by Nick on 2017/5/9 17:09
