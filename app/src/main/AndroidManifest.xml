@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.tornaco.tasker">
+    package="dev.tornaco.tasker.module">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -9,22 +9,26 @@
         android:functionalTest="false"
         android:handleProfiling="false"
         android:label="Tests for dev.tornaco.tasker"
-        android:targetPackage="dev.tornaco.tasker" />
-
+        android:targetPackage="dev.tornaco.tasker.module" />
 
     <application
-        android:name=".TaskerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <uses-library android:name="android.test.runner" />
 
+        <meta-data
+            android:name="tasker-module-title"
+            android:value="Module test" />
+        <meta-data
+            android:name="tasker-module-description"
+            android:value="Description here to show what this module can do." />
+
         <activity
-            android:name=".NavigatorActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -33,7 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

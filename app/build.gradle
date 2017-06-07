@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "dev.tornaco.tasker"
+        applicationId "dev.tornaco.tasker.module"
         minSdkVersion 18
         targetSdkVersion 25
         versionCode 1
@@ -49,9 +49,7 @@ dependencies {
     compile 'com.android.support.test.espresso:espresso-core:2.2.2'
     // Set this dependency to build and run UI Automator tests
     compile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
-    compile 'com.chrisplus.rootmanager:library:2.0.5@aar'
     compile 'com.github.Tornaco:Logger:1.1'
-    compile 'com.github.Tornaco:Tasker-API:1.0-ALPHA'
 
     compile 'com.google.code.gson:gson:2.7'
 }

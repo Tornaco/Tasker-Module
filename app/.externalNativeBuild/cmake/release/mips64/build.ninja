@@ -37,7 +37,7 @@ build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__nat
   DEP_FILE = CMakeFiles\native-lib.dir\src\main\cpp\native-lib.cpp.o.d
   FLAGS = -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -frtti -fexceptions -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC
   INCLUDES = -isystem D:/android/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem D:/android/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/mips64/include -isystem D:/android/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward
-  IN_ABS = D:\android\workspace\old\Tasker\app\src\main\cpp\native-lib.cpp
+  IN_ABS = D:\android\workspace\old\Tasker-Module\app\src\main\cpp\native-lib.cpp
   OBJECT_DIR = CMakeFiles\native-lib.dir
   OBJECT_FILE_DIR = CMakeFiles\native-lib.dir\src\main\cpp
 
@@ -64,7 +64,7 @@ build ../../../../build/intermediates/cmake/release/obj/mips64/libnative-lib.so:
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\android\workspace\old\Tasker\app\.externalNativeBuild\cmake\release\mips64 && D:\android\sdk\cmake\3.6.3155560\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D D:\android\workspace\old\Tasker-Module\app\.externalNativeBuild\cmake\release\mips64 && D:\android\sdk\cmake\3.6.3155560\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util
@@ -73,7 +73,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\android\workspace\old\Tasker\app\.externalNativeBuild\cmake\release\mips64 && D:\android\sdk\cmake\3.6.3155560\bin\cmake.exe -HD:\android\workspace\old\Tasker\app -BD:\android\workspace\old\Tasker\app\.externalNativeBuild\cmake\release\mips64"
+  COMMAND = cmd.exe /C "cd /D D:\android\workspace\old\Tasker-Module\app\.externalNativeBuild\cmake\release\mips64 && D:\android\sdk\cmake\3.6.3155560\bin\cmake.exe -HD:\android\workspace\old\Tasker-Module\app -BD:\android\workspace\old\Tasker-Module\app\.externalNativeBuild\cmake\release\mips64"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
