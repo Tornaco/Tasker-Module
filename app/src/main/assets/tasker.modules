@@ -52,7 +52,7 @@
         "description":"Noop",
         "method":"quanMinKTVComments",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock quanMinKTVComments"
+        "title":"全民K歌写评论"
     },
 	
 	{
@@ -60,7 +60,23 @@
         "description":"Noop",
         "method":"quanMinKTVComments50",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock quanMinKTVComments50"
+        "title":"全民K歌写评论 50次"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"sendQQMessage",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"QQ消息发送"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"sendQQMessage50",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"QQ消息发送 50次"
     }
 
 

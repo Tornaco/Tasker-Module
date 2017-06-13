@@ -22,15 +22,15 @@
 
         <meta-data
             android:name="tasker-module-title"
-            android:value="Module test" />
+            android:value="示例模块" />
         <meta-data
             android:name="tasker-module-description"
-            android:value="Description here to show what this module can do." />
+            android:value="这里需要写该模块的相关描述信息" />
 
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
