@@ -8,7 +8,19 @@ There are 2 parts to implement this goal:
 
 2. Tasker Module, the real tests container.
 
-#### How to setup:
+### How to setup you module app:
+
+* Add dependencies
+```
+ compile 'com.android.support.test:runner:0.5'
+    // Set this dependency to use JUnit 4 rules
+    compile 'com.android.support.test:rules:0.5'
+    // Set this dependency to build and run Espresso tests
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    // Set this dependency to build and run UI Automator tests
+    compile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    compile 'com.github.Tornaco:Logger:1.1'
+```
 
 * Declare it a test app in AndroidManifest.xml
 ```
@@ -42,7 +54,7 @@ There are 2 parts to implement this goal:
 ```
 
 
-## Flow
+### Flow
 
 
 ![flow](design/flow2.png)
