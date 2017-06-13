@@ -37,6 +37,14 @@
         "method":"getProductName",
         "testPkg":"dev.tornaco.tasker.module",
         "title":"Mock getProductName"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"launch3rdApp",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock launch3rdApp"
     }
 
 
