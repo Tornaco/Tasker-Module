@@ -4,8 +4,13 @@ Running tasks based on any uiautomator API through this APP on Root devices
 ## Functional design
 
 There are 2 parts to implement this goal:
-1. Tasker-App, accept user tasks and route these commands to run test suit app.
-2. Bridge, based on android junit test and uiautomator framework Instrumention decleared:
+1. Tasker-App, accept user tasks and route these commands to run test suit app, based on android junit test and uiautomator framework Instrumention decleared.
+
+2. Tasker Module, the real tests container.
+
+#### How to setup:
+
+* Declare it a test app in AndroidManifest.xml
 ```
 <instrumentation
         android:name="android.support.test.runner.AndroidJUnitRunner"
@@ -14,12 +19,28 @@ There are 2 parts to implement this goal:
         android:label="Tests for dev.tornaco.tasker"
         android:targetPackage="dev.tornaco.tasker" />
 ```
-On a normal test step, we usually start a test like this:
+
+* Declare your modules in assets/xxx
 ```
-am instrument -w -r -e package xxx -e debug false xxxx/android.support.test.runner.AndroidJUnitRunner
+[
+    {
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"pressHome",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock pressHome"
+    },
+
+    {
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"showToast",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock toast"
+    },
+]
 ```
 
-So, we execute this command on our app, then the test suit can get the tasks(param, data) via AIDL service.
 
 ## Flow
 
@@ -31,35 +52,25 @@ So, we execute this command on our app, then the test suit can get the tasks(par
 
 We can easily achive this goal: Launcher an app and find an UI object and perform a lot of actions.
 
-1. AIDL call the Tasker App to retrieve the params etc.
 ```java
-TaskerBridgeServiceProxy.version(InstrumentationRegistry.getTargetContext(),
-                new Consumer<String>() {
-                    @Override
-                    public void accept(@Nullable String s) {
-                        Logger.d("TaskerBridgeService version: %s", s);
-                    }
-                });
- ```
-2. Get the UIDevice.
-```java
- UiDevice uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
- Logger.d("UIDevice: %s", uiDevice);
-```
+    @Before
+    public void setup() {
+        showToast("@Before");
+    }
 
-3. Use the API of UIDevice.
-```java
-uiDevice.pressHome();
- // Launch contacts app.
-String kill = uiDevice.executeShellCommand("am force-stop com.android.contacts");
-String res = uiDevice.executeShellCommand("am start -n com.android.contacts/.activities.PeopleActivity");
+    @After
+    public void teardown() throws InterruptedException {
+        showToast("@After");
+        // Wait for dismiss.
+        sleep(3 * 1000);
+    }
 
-UiObject addButton = uiDevice.findObject(
-     new UiSelector().resourceId("com.android.contacts:id/floating_action_button"));
+    @Test
+    public void pressHome() {
+        UiDevice device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        device.pressHome();
+    }
 
-addButton.clickAndWaitForNewWindow();
-
-sleep(10 * 1000);
 ```
 
 ------------------
