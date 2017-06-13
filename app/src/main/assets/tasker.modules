@@ -1,0 +1,43 @@
+[
+    {
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"pressHome",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock pressHome"
+    },
+
+    {
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"showToast",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock toast"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"pressBack",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"pressBack"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"openNotification",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock openNotification"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"getProductName",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock getProductName"
+    }
+
+
+]
