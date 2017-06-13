@@ -20,7 +20,7 @@
         "description":"Noop",
         "method":"pressBack",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"pressBack"
+        "title":"Mock pressBack"
     },
 	
 	{
@@ -45,6 +45,22 @@
         "method":"launch3rdApp",
         "testPkg":"dev.tornaco.tasker.module",
         "title":"Mock launch3rdApp"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"quanMinKTVComments",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock quanMinKTVComments"
+    },
+	
+	{
+        "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"Noop",
+        "method":"quanMinKTVComments50",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Mock quanMinKTVComments50"
     }
 
 
