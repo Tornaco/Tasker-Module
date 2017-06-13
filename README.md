@@ -11,8 +11,8 @@ There are 2 parts to implement this goal:
 ### How to setup you module app:
 
 * Add dependencies
-```
- compile 'com.android.support.test:runner:0.5'
+```shell
+    compile 'com.android.support.test:runner:0.5'
     // Set this dependency to use JUnit 4 rules
     compile 'com.android.support.test:rules:0.5'
     // Set this dependency to build and run Espresso tests
@@ -23,7 +23,7 @@ There are 2 parts to implement this goal:
 ```
 
 * Declare it a test app in AndroidManifest.xml
-```
+```xml
 <instrumentation
         android:name="android.support.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"
@@ -33,7 +33,7 @@ There are 2 parts to implement this goal:
 ```
 
 * Declare your modules in assets/xxx
-```
+```shell
 [
     {
         "clz":"dev.tornaco.tasker.module.ExampleModule",
