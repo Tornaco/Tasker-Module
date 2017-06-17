@@ -195,4 +195,9 @@ public class ExampleModule {
             sleep(3 * 1000);
         }
     }
+
+    @Test
+    public void badBehaviour() {
+        throw new IllegalStateException("Bad behaviour");
+    }
 }

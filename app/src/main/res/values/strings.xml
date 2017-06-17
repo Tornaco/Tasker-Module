@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Tasker-Module-Example</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">示例模块</string>
+    <string name="action_settings">设置</string>
 </resources>

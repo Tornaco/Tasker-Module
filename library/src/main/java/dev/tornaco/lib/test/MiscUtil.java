@@ -42,7 +42,8 @@ public abstract class MiscUtil {
     public static final long NEW_WINDOW_WAIT_TIMEOUT = 5 * 1000;
     public static final long UI_OBJECT_WAIT_TIMEOUT = 5 * 1000;
     public static final long UI_OBJECT_WAIT_TIMEOUT_LONG = 15 * 1000;
-    public static final long UI_OBJECT_WAIT_TIMEOUT_SHORT = 500;
+    public static final long UI_OBJECT_WAIT_TIMEOUT_INFINITE = 60 * 60 * 1000;
+    public static final long UI_OBJECT_WAIT_TIMEOUT_SHORT = 1000;
 
     public static void log(String format, Object... args) {
         Logger.d(String.format(format, args));
@@ -174,6 +175,18 @@ public abstract class MiscUtil {
         return path;
     }
 
+    public static String saveScreenshot(UiDevice device) {
+        String path = InstrumentationRegistry.getTargetContext().getExternalCacheDir()
+                + File.separator + "SCREENSHOT_"
+                + formatDateForFileName(System.currentTimeMillis())
+                + ".png";
+        File file = new File(path);
+        Assert.assertTrue("Fail create parent dir for tmp dir to save screenshot",
+                file.getParentFile().exists() || file.getParentFile().mkdirs());
+        device.takeScreenshot(file);
+        return file.getPath();
+    }
+
     public static String getImageWithUIObject(UiDevice device, UiObject uiObject)
             throws UiObjectNotFoundException, IOException {
         Assert.assertTrue(uiObject.waitForExists(UI_OBJECT_WAIT_TIMEOUT));
@@ -186,7 +199,6 @@ public abstract class MiscUtil {
         Assert.assertTrue("Fail create parent dir for tmp dir to save screenshot",
                 file.getParentFile().exists() || file.getParentFile().mkdirs());
         device.takeScreenshot(file);
-
         return cropImage(rect, path);
     }
 

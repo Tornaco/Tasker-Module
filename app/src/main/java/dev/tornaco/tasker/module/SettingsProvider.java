@@ -22,6 +22,6 @@ public class SettingsProvider {
 
     public String getTarget() {
         return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString("target", "MLOV");
+                .getString("target", "昵称");
     }
 }

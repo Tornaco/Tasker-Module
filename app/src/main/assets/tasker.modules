@@ -1,71 +1,71 @@
 [
     {
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"如题",
         "method":"pressHome",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock pressHome"
+        "title":"主页键"
     },
 
     {
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"如题",
         "method":"showToast",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock toast"
+        "title":"显示一个Toast"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"如题",
         "method":"pressBack",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock pressBack"
+        "title":"返回键"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"如题",
         "method":"openNotification",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock openNotification"
+        "title":"打开通知中心"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"如题",
         "method":"getProductName",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock getProductName"
+        "title":"或者本机器的产品代号"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"很烦人",
         "method":"launch3rdApp",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"Mock launch3rdApp"
+        "title":"启动所有安装的App"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"为你的首页的第一首歌写评论，需要安装全民K歌，并有账号登录",
         "method":"quanMinKTVComments",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"全民K歌写评论"
+        "title":"全民K歌评论"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"同上",
         "method":"quanMinKTVComments50",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"全民K歌写评论 50次"
+        "title":"全民K歌写评论50次"
     },
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"给你的好友发一条消息",
         "method":"sendQQMessage",
         "testPkg":"dev.tornaco.tasker.module",
         "title":"QQ消息发送"
@@ -73,10 +73,40 @@
 	
 	{
         "clz":"dev.tornaco.tasker.module.ExampleModule",
-        "description":"Noop",
+        "description":"xxx型轰炸机",
         "method":"sendQQMessage50",
         "testPkg":"dev.tornaco.tasker.module",
-        "title":"QQ消息发送 50次"
+        "title":"QQ消息发送50次"
+    },
+	
+	
+    {   "clz":"dev.tornaco.tasker.module.ExampleModule",
+        "description":"模拟一次Exception",
+        "method":"badBehaviour",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Bad behaviour"
+    },
+	
+	{   "clz":"dev.tornaco.tasker.module.SinaModule",
+        "description":"自动转发新浪微博榜单",
+        "method":"redirectBangDan",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Sina微博榜单"
+    },
+
+	
+	{   "clz":"dev.tornaco.tasker.module.KeepModule",
+        "description":"自动截图保存热门",
+        "method":"getImages",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"Keep热门截取"
+    },
+	
+	{   "clz":"dev.tornaco.tasker.module.NetEaseModule",
+        "description":"私人FM里给歌曲加评论",
+        "method":"addCommentsInPrivateFM",
+        "testPkg":"dev.tornaco.tasker.module",
+        "title":"网易云评论"
     }
 
 
